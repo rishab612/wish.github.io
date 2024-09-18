@@ -1,17 +1,23 @@
-// Extract the unique card ID from the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const cardId = urlParams.get('id');
 
-// Fetch the birthday data from localStorage
-const cardData = JSON.parse(localStorage.getItem(cardId));
+// Check if the cardId exists in the URL
+if (!cardId) {
+    // Redirect to a default page or show an error if no card ID is provided
+    document.body.innerHTML = "<h2>No card ID provided. Please use a valid link.</h2>";
+} else {
+    // Fetch the birthday data from localStorage using the cardId
+    const cardData = JSON.parse(localStorage.getItem(cardId));
 
-// Display the initial greeting with the birthday person's name and age
-if (cardData) {
-    document.getElementById('cardName').textContent = cardData.name;
-    document.getElementById('cardAge').textContent = cardData.age;
-    document.getElementById('cardMessage').textContent = cardData.message;
+    if (cardData) {
+        // Display the birthday information on the card
+        document.getElementById('cardName').textContent = cardData.name;
+        document.getElementById('cardAge').textContent = cardData.age;
+        document.getElementById('cardMessage').textContent = cardData.message;
+    } else {
+        document.body.innerHTML = "<h2>Card not found or invalid ID.</h2>";
+    }
 }
-
 // Click event for "Next" button
 document.getElementById('nextButton').addEventListener('click', function () {
     document.getElementById('greeting').classList.add('hidden');
