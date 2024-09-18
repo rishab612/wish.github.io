@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <div id="greeting">
+            <h1>Happy Birthday, <span id="cardName"></span>!</h1>
+            <h2>You are now <span id="cardAge"></span> years old!</h2>
+            <button id="nextButton">Next</button>
+        </div>
+        
+        <div id="cakeSection" class="hidden">
+            <h2>Blow the Candles!</h2>
+            <div class="cake">
+                <div class="candles" id="candlesContainer"></div>
+            </div>
+        </div>
+
+        <div id="finalMessage" class="hidden">
+            <h2>Message for you:</h2>
+            <p id="cardMessage"></p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
